@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="SolutionToPlastic.Views.Introduction"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SolutionToPlastic.Views"
+             mc:Ignorable="d" d:Width="1280" d:Height="1520" Background="White">
+    <StackPanel>
+        <Grid VerticalAlignment="Top" Height="600">
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#2F2FA2" Offset="0.5"/>
+                    <GradientStop Color="#242582" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid HorizontalAlignment="Left" Background="Transparent">
+                <TextBlock Style="{StaticResource MainText}" Margin="60,150,0,0" Text="SOLUTIONS TO PLASTIC"/>
+                <TextBlock Style="{StaticResource CaptionText}" Margin="60,215,0,0" Width="480" Text="Have you ever wondered? The first batch of plastics that were made still remain in the environment! The idea of plastic was so revolutionary. But this plastic soon became our enemy."/>
+                <Button Style="{StaticResource ButtonTheme}" Width="150" Height="50" Content="Next Page" HorizontalAlignment="Left" Margin="60,408,0,142"/>
+                <Image Source="/img/Image1.png" Width="240" Height="140" Margin="473,160,-173,300"/>
+            </Grid>
+            <Grid HorizontalAlignment="Right" Background="Transparent">
+                <TextBlock Style="{StaticResource MainText}" Margin="50,150,0,0" VerticalAlignment="Top" Text="ABOUT THE PROGRAM"/>
+                <TextBlock Style="{StaticResource CaptionText}" Width="480" Margin="50,215,0,0" Text="We made a computer portfolio program on Solutions to plastic, inventions made by people and so much more!"/>
+                <Button Style="{StaticResource ButtonTheme}" Width="150" Height="50" Content="Program" HorizontalAlignment="Left" Margin="50,408,0,142" />
+                <Image Source="/img/Computer Guy.png" Width="240" Height="140" Margin="-143,169,433,291"/>
+            </Grid>
+        </Grid>
+        <TextBlock Style="{StaticResource MainText}" Text="EFFECTS OF PLASTIC" Foreground="Black" HorizontalAlignment="Center" Margin="50"/>
+    </StackPanel>
+</UserControl>
