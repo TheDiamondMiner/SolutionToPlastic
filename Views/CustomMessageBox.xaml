@@ -1,0 +1,27 @@
+﻿<Window x:Class="SolutionToPlastic.Views.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolutionToPlastic.Views"
+        mc:Ignorable="d"
+        Title="State Data" Height="250" Width="250" WindowStyle="None" Topmost="True" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
+    <Window.DataContext>
+        <local:MessageBoxViewModel/>
+    </Window.DataContext>
+    <Border CornerRadius="10">
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="Orange" Offset="0.0"/>
+                <GradientStop Color="#F76C6C" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[0]}" Margin="5,10,0,0"/>
+            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[1]}" Margin="5,60,0,0"/>
+            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[2]}" Margin="5,110,0,0"/>
+            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[3]}" Margin="5,160,0,0"/>
+            <ProgressBar Style="{DynamicResource ProgressBarStyle1}" Value="{Binding PercentRecycled}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,210,0,0" Height="20" Width="250" Foreground="#FBE886"/>
+        </Grid>
+    </Border>
+</Window>

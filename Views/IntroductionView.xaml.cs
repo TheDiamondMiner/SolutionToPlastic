@@ -1,4 +1,5 @@
 ﻿using System;
+using SolutionToPlastic;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace SolutionToPlastic.Views
 {
-    /// <summary>
-    /// Interaction logic for US1.xaml
-    /// </summary>
     public partial class Introduction : UserControl
     {
         public Introduction()

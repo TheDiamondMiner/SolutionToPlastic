@@ -3,6 +3,7 @@ using SolutionToPlastic.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,47 +26,24 @@ namespace SolutionToPlastic
         {
             InitializeComponent();
         }
-
-        private async void Grid_KeyDown(object sender, KeyEventArgs e)
-        {
-            ViewModel viewModel = (ViewModel)DataContext;
-            string[] viewNames = new string[6] { "Introduction", "Inventions", "Percentage", "Projects", "PlasticComposition", "ThankYou" };
-            int i = 0;
-
-            switch (e.Key)
-            {
-                case Key.T: //For Toggling Automation on and off
-                    viewModel.Automation = !viewModel.Automation;
-                    while (viewModel.Automation is true)
-                    {
-                        viewModel.Switcher.Execute(viewNames[i]);
-                        await Task.Delay(500);
-                        i++;
-                        if (i > 5)
-                        {
-                            i = 0;
-                        }
-                    }
-                    break;
-
-                case Key.U:
-                    break;
-
-                case Key.Left:
-                    break;
-            }
-        }
     }
 
     public class ViewModel : PsudeoViewModel, INotifyPropertyChanged
-    { 
+    {
+        private string dataforstate = File.ReadAllText("StateData.csv");
+
+        public Dictionary<int, string> stateName = new Dictionary<int, string>();
+        public List<string> plasticRecycledAmount = new List<string>();
+        public List<string> percentageRecycled = new List<string>();
+
         public event PropertyChangedEventHandler? PropertyChanged;
         public ICommand Switcher { get; }
-        public bool Automation = false;
 
         public ViewModel()
         {
             Switcher = new ViewSwitcher(this);
+            currentview.ViewChanged += Child_ViewChanged;
+            SetUpDataForState();
         }
 
         private PsudeoViewModel currentview = new ViewModels.Introduction();
@@ -76,10 +54,46 @@ namespace SolutionToPlastic
             set {
                 currentview = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentView"));
+                currentview.ViewChanged += Child_ViewChanged;
+            }
+        }
+
+        private void Child_ViewChanged(object? sender, NotifyChangeView e)
+        {
+            Switcher.Execute(NotifyChangeView.NextPage);
+        }
+
+        private void SetUpDataForState()
+        {
+            string[] arr = dataforstate.Split(',');
+            for(int i = 0; i < 31;)
+            {
+                stateName.Add(i, arr[i]);
+                plasticRecycledAmount.Add(arr[i + 1]);
+                plasticRecycledAmount.Add(arr[i + 2]);
+                percentageRecycled.Add(arr[i + 3]);
+                i += 4;
             }
         }
     }
-    public class PsudeoViewModel { }
+
+    public class NotifyChangeView : EventArgs {
+        public static string NextPage { get; set; }
+
+        public NotifyChangeView(string page)
+        {
+            NextPage = page;
+        }
+    }
+
+    public class PsudeoViewModel {
+        public event EventHandler<NotifyChangeView> ViewChanged;
+
+        public void RaiseEvent(string nextpage)
+        {
+            ViewChanged.Invoke(this, new NotifyChangeView(nextpage));
+        }
+    }
 
     public class ViewSwitcher : ICommand
     {
@@ -130,10 +144,57 @@ namespace SolutionToPlastic
 
 namespace SolutionToPlastic.ViewModels
 {
-    public class Introduction : PsudeoViewModel {}
-    public class PercentagePage : PsudeoViewModel {} // For Percentage of plastic recycled by Indian states and country
+    public class Introduction : PsudeoViewModel {
+        public ICommand PageSwitch { get; }
+
+        public Introduction()
+        {
+            PageSwitch = new NotifyParentForPageSwitch(this);
+        }
+    }
+
+    public class PercentagePage : PsudeoViewModel, INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler? PropertyChanged;
+    }
     public class ProjectsDone : PsudeoViewModel {}   // Team Seas and Swatchda bharat etc
     public class InventionsMade : PsudeoViewModel {} // Inventions made as a solution to plastic
     public class PlasticComposition : PsudeoViewModel {}
     public class ThankYouCredits : PsudeoViewModel {}
+
+    public class NotifyParentForPageSwitch : ICommand
+    {
+        public event EventHandler? CanExecuteChanged;
+        public Introduction vm;
+
+        public NotifyParentForPageSwitch(Introduction vm)
+        {
+            this.vm = vm;
+        }
+
+        public bool CanExecute(object? parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object? parameter)
+        {
+            vm.RaiseEvent(parameter.ToString());
+        }
+    }
+
+    public class PrepareDataForMap : ICommand
+    {
+        public event EventHandler? CanExecuteChanged;
+
+        public bool CanExecute(object? parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object? parameter)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

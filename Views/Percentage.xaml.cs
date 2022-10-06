@@ -1,4 +1,5 @@
 ﻿using System;
+using SolutionToPlastic;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace SolutionToPlastic.Views
         public Percentage()
         {
             InitializeComponent();
+        }
+
+        private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            CustomMessageBox.MessageBox2.Show();
         }
     }
 }

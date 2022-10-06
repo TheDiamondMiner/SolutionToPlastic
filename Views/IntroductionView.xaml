@@ -3,29 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SolutionToPlastic.Views"
+             xmlns:local="clr-namespace:SolutionToPlastic.ViewModels"
              mc:Ignorable="d" d:Width="1280" d:Height="1520" Background="White">
     <StackPanel>
-        <Grid VerticalAlignment="Top" Height="600">
-            <Grid.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="#2F2FA2" Offset="0.5"/>
-                    <GradientStop Color="#242582" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Grid HorizontalAlignment="Left" Background="Transparent">
-                <TextBlock Style="{StaticResource MainText}" Margin="60,150,0,0" Text="SOLUTIONS TO PLASTIC"/>
-                <TextBlock Style="{StaticResource CaptionText}" Margin="60,215,0,0" Width="480" Text="Have you ever wondered? The first batch of plastics that were made still remain in the environment! The idea of plastic was so revolutionary. But this plastic soon became our enemy."/>
-                <Button Style="{StaticResource ButtonTheme}" Width="150" Height="50" Content="Next Page" HorizontalAlignment="Left" Margin="60,408,0,142"/>
-                <Image Source="/img/Image1.png" Width="240" Height="140" Margin="473,160,-173,300"/>
-            </Grid>
-            <Grid HorizontalAlignment="Right" Background="Transparent">
-                <TextBlock Style="{StaticResource MainText}" Margin="50,150,0,0" VerticalAlignment="Top" Text="ABOUT THE PROGRAM"/>
-                <TextBlock Style="{StaticResource CaptionText}" Width="480" Margin="50,215,0,0" Text="We made a computer portfolio program on Solutions to plastic, inventions made by people and so much more!"/>
-                <Button Style="{StaticResource ButtonTheme}" Width="150" Height="50" Content="Program" HorizontalAlignment="Left" Margin="50,408,0,142" />
-                <Image Source="/img/Computer Guy.png" Width="240" Height="140" Margin="-143,169,433,291"/>
+        <StackPanel.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#374785" Offset="0.02"/>
+                <GradientStop Color="#2E1F78" Offset="0.9"/>
+            </LinearGradientBrush>
+        </StackPanel.Background>
+        <Grid Height="600" Margin="0,0,0,280">
+            <Grid VerticalAlignment="Center">
+                <TextBlock Style="{StaticResource MainText}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,120,0,0" Text="ABOUT THE COMPUTER PROGRAM"/>
+                <TextBlock Style="{StaticResource CaptionText}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,180,0,0" Width="680" Text="This program was made by us to present a portfolio on the topic Solution To Plastic. You can interact with the buttons and see what magical stuff they do and navigate throughtout the pages. This application will help to demonstrate the effects plastic has on nature and efforts and invention done by people."/>
+                <Button Style="{StaticResource ButtonTheme}" Command="{Binding PageSwitch}" CommandParameter="ThankYou" Width="100" Height="50" Content="Credits" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="90,400,0,0"/>
+                <Image Source="/img/Computer Guy.png" VerticalAlignment="Top" HorizontalAlignment="Right" Width="739" Margin="0,29,-51,0" Height="461"/>
             </Grid>
         </Grid>
-        <TextBlock Style="{StaticResource MainText}" Text="EFFECTS OF PLASTIC" Foreground="Black" HorizontalAlignment="Center" Margin="50"/>
+        <Grid Height="900">
+            <Grid.Background>
+                <ImageBrush ImageSource="/img/Natural_Background.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <TextBlock Style="{StaticResource MainText}" VerticalAlignment="Top" HorizontalAlignment="Center" Text="SOLUTIONS TO PLASTIC" Margin="0,120,0,0" Foreground="#DAAD86"/>
+            <TextBlock Style="{StaticResource CaptionText}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,220,0,0" Width="855" Foreground="#5C4033" FontWeight="Regular" TextAlignment="Center" Text="Have you ever wondered? The first batch of plastics still remain in the environement! Plastics don't decompose for more than decades, estimated time is more than 500 years! Nutricula jellyfishes live that long. Plastics are toxic in nature and even after decomposition they don't really decompose. Presenting on Solutions to Plastic."/>
+            <Button Style="{StaticResource ButtonTheme}" Command="{Binding PageSwitch}" CommandParameter="Percentage" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,120,0,0" Content="Next Page"/>
+        </Grid>
     </StackPanel>
 </UserControl>

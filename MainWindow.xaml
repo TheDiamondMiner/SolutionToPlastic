@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolutionToPlastic"
         mc:Ignorable="d"
-        Title="Solutions To Plastic" Width="1280" Height="720" WindowState="Maximized">
+        Title="Solutions To Plastic" Width="1280" Height="720" WindowState="Maximized" WindowStyle="None">
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
     <DockPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-            <ContentControl Content="{Binding CurrentView}"/>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <ContentControl DataContext="{Binding CurrentView}" Content="{Binding}"/>
         </ScrollViewer>
     </DockPanel>
 </Window>

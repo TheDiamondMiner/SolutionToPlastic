@@ -13,6 +13,8 @@
     <None Remove="img\Computer Guy.png" />
     <None Remove="img\DeadFish.png" />
     <None Remove="img\EdibleWater.jpg" />
+    <None Remove="img\India Map Chart.png" />
+    <None Remove="img\Natural_Background.jpg" />
     <None Remove="img\Oho.jpg" />
     <None Remove="img\Oho2.png" />
     <None Remove="img\Plastic.png" />
@@ -45,6 +47,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\EdibleWater.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\India Map Chart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Natural_Background.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Oho.jpg">
