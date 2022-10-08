@@ -16,15 +16,16 @@ using System.Windows.Shapes;
 
 namespace SolutionToPlastic.Views
 {
-    /// <summary>
-    /// Interaction logic for CustomMessageBox.xaml
-    /// </summary>
     public partial class CustomMessageBox : Window
     {
-        public static CustomMessageBox MessageBox2 = new CustomMessageBox();
-        private CustomMessageBox()
+        public CustomMessageBox()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
         }
     }
 
@@ -34,24 +35,48 @@ namespace SolutionToPlastic.Views
         private int percentRecycled = 0;
         private string[] statedetails = { "STATE:", "PLASTIC RECYCLED (KG):", "PLASTIC RECYCLED (TON):", "YEAR: 2021-2022" };
         
-        public string[] StateDetails
+        public string StateName
         {
-            get { return statedetails; }
+            get { return statedetails[0]; }
             set { 
-                statedetails = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StateDetails"));
+                statedetails[0] = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("StateName"));
             }
         }
-
+        public string RecycledKG
+        {
+            get { return statedetails[1]; }
+            set
+            {
+                statedetails[1] = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RecycledKG"));
+            }
+        }
+        public string RecycledTON
+        {
+            get { return statedetails[2]; }
+            set
+            {
+                statedetails[2] = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RecycledTON"));
+            }
+        }
+        public string Percent
+        {
+            get { return $"{PercentRecycled}%"; }
+            set { 
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Percent"));
+            }
+        }
         public int PercentRecycled
         {
             get { return percentRecycled; }
             set
             {
                 percentRecycled = value;
+                Percent = percentRecycled.ToString();
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PercentRecycled"));
             }
         }
-
     }
 }

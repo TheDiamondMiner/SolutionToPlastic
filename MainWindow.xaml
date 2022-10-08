@@ -10,7 +10,7 @@
         <local:ViewModel/>
     </Window.DataContext>
     <DockPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer>
             <ContentControl DataContext="{Binding CurrentView}" Content="{Binding}"/>
         </ScrollViewer>
     </DockPanel>

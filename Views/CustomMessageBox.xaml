@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:SolutionToPlastic.Views"
         mc:Ignorable="d"
         Title="State Data" Height="250" Width="250" WindowStyle="None" Topmost="True" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
-    <Window.DataContext>
-        <local:MessageBoxViewModel/>
-    </Window.DataContext>
     <Border CornerRadius="10">
         <Border.Background>
             <LinearGradientBrush>
@@ -17,11 +14,14 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[0]}" Margin="5,10,0,0"/>
-            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[1]}" Margin="5,60,0,0"/>
-            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[2]}" Margin="5,110,0,0"/>
-            <TextBlock Style="{StaticResource CaptionText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateDetails[3]}" Margin="5,160,0,0"/>
-            <ProgressBar Style="{DynamicResource ProgressBarStyle1}" Value="{Binding PercentRecycled}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,210,0,0" Height="20" Width="250" Foreground="#FBE886"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateName, UpdateSourceTrigger=PropertyChanged}" Margin="5,10,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding RecycledKG}" Margin="5,60,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding RecycledTON}" Margin="5,110,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="YEAR: 2021-2022" Margin="5,160,0,0"/>
+            <TextBlock Text="{Binding PercentRecycled}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,40" Foreground="White"/>
+            <ProgressBar Style="{DynamicResource ProgressBarStyle1}" Value="{Binding PercentRecycled}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,40" Height="20" Width="240" Foreground="#5CDB82"/>
+            <TextBlock Text="{Binding Percent}" Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,60"/>
+            <Button Content="OK" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="50" Margin="0,0,5,5" Click="Button_Click"/>
         </Grid>
     </Border>
 </Window>

@@ -5,9 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SolutionToPlastic.Views"
              mc:Ignorable="d" 
-             d:DesignWidth="1280" Height="720">
-    <Grid>
-        <Canvas>
+             d:DesignWidth="1280" xml:space="preserve" x:Name="ThisWindow">
+    <StackPanel>
+        <Grid Height="1000">
+            
+        <TextBlock Style="{StaticResource MainText}" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,405,0" Text="PLASTIC RECYCLED"/>
+        <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,100,20,0" Text="This Map contains the Plastic Recycled by all the states in India in KG's Ton's from the previous year till now. Click on a state to fetch it's data. Why don't you try it for yourself?" Width="742"/>
+        
+        <Canvas x:Name="Canvas" Margin="0,33,0,-33">
             <Image Source="/img/India Map Chart.png" Height="720"/>
             <Ellipse ToolTip="Delhi" x:Name="Delhi" Height="20" Width="14" Canvas.Left="241" Canvas.Top="192" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Nagaland" x:Name="Nagaland" Height="25" Width="35" Canvas.Left="595" Canvas.Top="237" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
@@ -16,8 +21,8 @@
             <Ellipse ToolTip="Mizoram" x:Name="Mizoram" Height="38" Width="15" Canvas.Left="568" Canvas.Top="304" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Meghalaya" x:Name="Meghalaya" Height="20" Width="50" Canvas.Left="507" Canvas.Top="263" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Assam" x:Name="Assam" Height="36" Width="77" Canvas.Left="525" Canvas.Top="227" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
-            <Ellipse ToolTip="ArunachalPradesh" x:Name="ArunachalPradesh" Height="62" Width="98" Canvas.Left="545" Canvas.Top="172" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
-            <Ellipse ToolTip="WestBengal" x:Name="WestBengal" Height="50" Width="50" Canvas.Left="439" Canvas.Top="303" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
+            <Ellipse ToolTip="Arunachal Pradesh" x:Name="ArunachalPradesh" Height="62" Width="98" Canvas.Left="545" Canvas.Top="172" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
+            <Ellipse ToolTip="West Bengal" x:Name="WestBengal" Height="50" Width="50" Canvas.Left="439" Canvas.Top="303" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
             <Ellipse ToolTip="Odisha" x:Name="Odisha" Height="97" Width="98" Canvas.Left="360" Canvas.Top="353" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Jharkhand" x:Name="Jharkhand" Height="50" Width="50" Canvas.Left="389" Canvas.Top="298" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
             <Ellipse ToolTip="Bihar" x:Name="Bihar" Height="50" Width="76" Canvas.Left="395" Canvas.Top="244" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
@@ -31,14 +36,14 @@
                     </TransformGroup>
                 </Ellipse.RenderTransform>
             </Ellipse>
-            <Ellipse ToolTip="UttarPradesh" x:Name="UttarPradesh" Height="91" Width="136" Canvas.Left="254" Canvas.Top="192" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
+            <Ellipse ToolTip="Uttar Pradesh" x:Name="UttarPradesh" Height="91" Width="136" Canvas.Left="254" Canvas.Top="192" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Uttarakhand" x:Name="Uttarakhand" Height="50" Width="42" Canvas.Left="268" Canvas.Top="142" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
-            <Ellipse ToolTip="JammuKashmir" x:Name="JammuKashmir" Height="36" Width="87" Canvas.Left="192" Canvas.Top="65" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
-            <Ellipse ToolTip="HimachalPradesj" x:Name="HimachalPradesh" Height="50" Width="50" Canvas.Left="229" Canvas.Top="101" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
+            <Ellipse ToolTip="Jammu Kashmir" x:Name="JammuKashmir" Height="36" Width="87" Canvas.Left="192" Canvas.Top="65" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
+            <Ellipse ToolTip="Himachal Pradesh" x:Name="HimachalPradesh" Height="50" Width="50" Canvas.Left="229" Canvas.Top="101" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
             <Ellipse ToolTip="Punjab" x:Name="Punjab" Height="42" Width="39" Canvas.Left="197" Canvas.Top="130" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
             <Ellipse ToolTip="Haryana" x:Name="Haryana" Height="31" Width="35" Canvas.Left="216" Canvas.Top="180" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Ellipse ToolTip="Rajasthan" x:Name="Rajasthan" Height="128" Width="125" Canvas.Left="111" Canvas.Top="180" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
-            <Ellipse ToolTip="MadhyaPradesh" x:Name="MadhyaPradesh" Height="107" Width="131" Canvas.Left="203" Canvas.Top="263" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
+            <Ellipse ToolTip="Madhya Pradesh" x:Name="MadhyaPradesh" Height="107" Width="131" Canvas.Left="203" Canvas.Top="263" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Gujurat" x:Name="Gujarat" Height="96" Width="104" Canvas.Left="73" Canvas.Top="300" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Goa" x:Name="Goa" Height="24" Width="18" Canvas.Left="168" Canvas.Top="495" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"/>
             <Ellipse ToolTip="Maharastra" x:Name="Maharastra" Height="74" Width="139" Canvas.Left="143" Canvas.Top="389" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown"  RenderTransformOrigin="0.5,0.5">
@@ -51,8 +56,8 @@
                     </TransformGroup>
                 </Ellipse.RenderTransform>
             </Ellipse>
-            <Ellipse ToolTip="Karnatake" x:Name="Karnataka" Height="106" Width="66" Canvas.Left="181" Canvas.Top="472" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
-            <Ellipse ToolTip="AndraPradesh" x:Name="AndraPradesh" Height="137" Width="105" Canvas.Left="244" Canvas.Top="418" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
+            <Ellipse ToolTip="Karnataka" x:Name="Karnataka" Height="106" Width="66" Canvas.Left="181" Canvas.Top="472" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
+            <Ellipse ToolTip="Andra Pradesh" x:Name="Andrapradesh" Height="137" Width="105" Canvas.Left="244" Canvas.Top="418" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
             <Ellipse ToolTip="Kerala" x:Name="Kerala" Height="106" Width="34" Canvas.Left="203" Canvas.Top="564" RenderTransformOrigin="0.5,0.5" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
@@ -66,4 +71,23 @@
             <Ellipse ToolTip="TamilNadu" x:Name="TamilNadu" Height="83" Width="70" Canvas.Left="244" Canvas.Top="567" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
         </Canvas>
     </Grid>
+        <Grid>
+            <TextBlock Style="{StaticResource MainText}" Foreground="Black" HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Text="PERCENTAGE OF TOP 5 COUNTRIES"/>
+            <Button Style="{StaticResource ButtonTheme}" Content="Fetch Data" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" Height="50" Margin="0,5,20,0"/>
+            <StackPanel HorizontalAlignment="Right" Width="1200" Margin="0,105,10,0">
+                <ProgressBar Style="{StaticResource ProgressBarStyle1}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[0]}"/>
+                <ProgressBar Style="{StaticResource ProgressBarStyle1}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[1]}"/>
+                <ProgressBar Style="{StaticResource ProgressBarStyle1}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[2]}"/>
+                <ProgressBar Style="{StaticResource ProgressBarStyle1}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[3]}"/>
+                <ProgressBar Style="{StaticResource ProgressBarStyle1}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[4]}"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Margin="0,105,0,0" Background="LightGray">
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[0]}" FontSize="42"/>
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[1]}" FontSize="18"/>
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[2]}" FontSize="18"/>
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[3]}" FontSize="18"/>
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[4]}" FontSize="18"/>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </UserControl>

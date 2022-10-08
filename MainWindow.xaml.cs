@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -31,23 +32,24 @@ namespace SolutionToPlastic
     public class ViewModel : PsudeoViewModel, INotifyPropertyChanged
     {
         private string dataforstate = File.ReadAllText("StateData.csv");
-
         public Dictionary<int, string> stateName = new Dictionary<int, string>();
         public List<string> plasticRecycledAmount = new List<string>();
         public List<string> percentageRecycled = new List<string>();
 
         public event PropertyChangedEventHandler? PropertyChanged;
+        public static ViewModel viewModel = new ViewModel();
         public ICommand Switcher { get; }
+        public ICommand SetData { get; }
 
         public ViewModel()
         {
             Switcher = new ViewSwitcher(this);
             currentview.ViewChanged += Child_ViewChanged;
             SetUpDataForState();
+            SetData = new CollectDataForStates(this, new MessageBoxViewModel());
         }
 
         private PsudeoViewModel currentview = new ViewModels.Introduction();
-
         public PsudeoViewModel CurrentView
         {
             get { return currentview; }
@@ -66,13 +68,14 @@ namespace SolutionToPlastic
         private void SetUpDataForState()
         {
             string[] arr = dataforstate.Split(',');
-            for(int i = 0; i < 31;)
+            int j = 0;
+            for (int i = 0; i < 29; i++)
             {
-                stateName.Add(i, arr[i]);
-                plasticRecycledAmount.Add(arr[i + 1]);
-                plasticRecycledAmount.Add(arr[i + 2]);
-                percentageRecycled.Add(arr[i + 3]);
-                i += 4;
+                stateName.Add(i, arr[j + 0]);
+                plasticRecycledAmount.Add(arr[j + 1]);
+                plasticRecycledAmount.Add(arr[j + 2]);
+                percentageRecycled.Add(arr[j + 3]);
+                j += 4;
             }
         }
     }
@@ -130,10 +133,6 @@ namespace SolutionToPlastic
                     vm.CurrentView = new InventionsMade();
                     break;
 
-                case "PlasticComposition":
-                    vm.CurrentView = new ViewModels.PlasticComposition();
-                    break;
-
                 case "ThankYou":
                     vm.CurrentView = new ThankYouCredits();
                     break;
@@ -153,14 +152,57 @@ namespace SolutionToPlastic.ViewModels
         }
     }
 
-    public class PercentagePage : PsudeoViewModel, INotifyPropertyChanged
+    public class PercentagePage : PsudeoViewModel 
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        private string[] countries = { "South Korea","Germany","Singapore","Netherlands","Wales"};
+        private int[] percentNumber = { 91, 78, 66, 63, 65 };
+
+        public string[] Countries
+        {
+            get { return countries; }
+        }
+        public int[] Percentages
+        {
+            get { return percentNumber; }
+        }
     }
+
     public class ProjectsDone : PsudeoViewModel {}   // Team Seas and Swatchda bharat etc
     public class InventionsMade : PsudeoViewModel {} // Inventions made as a solution to plastic
-    public class PlasticComposition : PsudeoViewModel {}
     public class ThankYouCredits : PsudeoViewModel {}
+
+    public class CollectDataForStates : ICommand
+    {
+        public ViewModel vm;
+        public MessageBoxViewModel msgbox;
+        public event EventHandler? CanExecuteChanged;
+        public CustomMessageBox box;
+
+        public CollectDataForStates(ViewModel vm, MessageBoxViewModel messageBox)
+        {
+            this.vm = vm;
+            msgbox = messageBox;
+            box = new CustomMessageBox { DataContext = msgbox };
+        }
+
+        public bool CanExecute(object? parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object? parameter)
+        {
+            string[] parameter2 = parameter.ToString().Split(',');
+            int index = vm.stateName.FirstOrDefault(x => x.Value == parameter2[2]).Key;
+            box.Top = Convert.ToDouble(parameter2[1]);
+            box.Left = Convert.ToDouble(parameter2[0]);
+            if (box.IsActive == false) { box.Show(); }
+            msgbox.StateName = $"STATE: {vm.stateName[index]}";
+            msgbox.RecycledKG = $"PLASTIC RECYCLED (KG): {vm.plasticRecycledAmount[index + 1]}";
+            msgbox.RecycledTON = $"PLASTIC RECYCLED (TON) {vm.plasticRecycledAmount[index]}";
+            msgbox.PercentRecycled = Convert.ToInt32(vm.percentageRecycled[index]);
+        }
+    }
 
     public class NotifyParentForPageSwitch : ICommand
     {
@@ -180,21 +222,6 @@ namespace SolutionToPlastic.ViewModels
         public void Execute(object? parameter)
         {
             vm.RaiseEvent(parameter.ToString());
-        }
-    }
-
-    public class PrepareDataForMap : ICommand
-    {
-        public event EventHandler? CanExecuteChanged;
-
-        public bool CanExecute(object? parameter)
-        {
-            return true;
-        }
-
-        public void Execute(object? parameter)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -15,12 +15,10 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SolutionToPlastic.ViewModels;
 
 namespace SolutionToPlastic.Views
 {
-    /// <summary>
-    /// Interaction logic for Percentage.xaml
-    /// </summary>
     public partial class Percentage : UserControl
     {
         public Percentage()
@@ -30,7 +28,12 @@ namespace SolutionToPlastic.Views
 
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            CustomMessageBox.MessageBox2.Show();
+            var viewModel = ViewModel.viewModel;
+            Ellipse state = (Ellipse)sender;
+            Point mousepos = e.GetPosition(Canvas);
+            double posX = mousepos.X - 5;
+            double posY = mousepos.Y + 25;
+            viewModel.SetData.Execute($"{posX},{posY},{state.ToolTip.ToString().ToUpper()}");
         }
     }
 }
