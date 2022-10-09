@@ -15,9 +15,9 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
-    <SolidColorBrush x:Key="ProgressBar.Progress" Color="#FF06B025"/>
-    <SolidColorBrush x:Key="ProgressBar.Background" Color="#FFE6E6E6"/>
-    <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>
+    <SolidColorBrush x:Key="ProgressBar.Progress" Color="Orange"/>
+    <SolidColorBrush x:Key="ProgressBar.Background" Color="LightGray"/>
+    <SolidColorBrush x:Key="ProgressBar.Border" Color="Transparent"/>
     <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground" Value="{StaticResource ProgressBar.Progress}"/>
         <Setter Property="Background" Value="{StaticResource ProgressBar.Background}"/>
@@ -73,14 +73,29 @@
                         <Trigger Property="IsIndeterminate" Value="true">
                             <Setter Property="Visibility" TargetName="Indicator" Value="Collapsed"/>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            
-                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="ProgressBar" x:Key="ProgressBarStyle2">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Orange"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Triggers>
+            <Trigger Property="IsVisible" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Value" Duration="0:0:1.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <Style TargetType="Image" x:Key="AnimatedImage">
         <Setter Property="Width" Value="240"/>
         <Setter Property="Height" Value="240"/>
@@ -121,19 +136,5 @@
     <Style TargetType="Ellipse" x:Key="EllpseTheme">
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Fill" Value="Transparent"/>
-    </Style>
-
-    <Style TargetType="ProgressBar" x:Key="PercentBarTheme">
-        <Style.Setters>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ProgressBar">
-                        <Border CornerRadius="10">
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Foreground" Value="Orange"/>
-        </Style.Setters>
     </Style>
 </ResourceDictionary>

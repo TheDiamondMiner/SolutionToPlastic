@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -126,11 +127,7 @@ namespace SolutionToPlastic
                     break;
 
                 case "Projects":
-                    vm.CurrentView = new ProjectsDone();
-                    break;
-
-                case "Inventions":
-                    vm.CurrentView = new InventionsMade();
+                    vm.CurrentView = new ProjectsAndInventions();
                     break;
 
                 case "ThankYou":
@@ -145,7 +142,6 @@ namespace SolutionToPlastic.ViewModels
 {
     public class Introduction : PsudeoViewModel {
         public ICommand PageSwitch { get; }
-
         public Introduction()
         {
             PageSwitch = new NotifyParentForPageSwitch(this);
@@ -155,20 +151,24 @@ namespace SolutionToPlastic.ViewModels
     public class PercentagePage : PsudeoViewModel 
     {
         private string[] countries = { "South Korea","Germany","Singapore","Netherlands","Wales"};
-        private int[] percentNumber = { 91, 78, 66, 63, 65 };
+        private int[] percentNumber = { 91, 78, 72, 68, 63 };
+        public ICommand PageSwitch { get; }
 
+        public PercentagePage()
+        {
+            PageSwitch = new NotifyParentForPageSwitch(this);
+        }
         public string[] Countries
         {
             get { return countries; }
         }
-        public int[] Percentages
+        public int[] Percentage
         {
             get { return percentNumber; }
         }
     }
 
-    public class ProjectsDone : PsudeoViewModel {}   // Team Seas and Swatchda bharat etc
-    public class InventionsMade : PsudeoViewModel {} // Inventions made as a solution to plastic
+    public class ProjectsAndInventions : PsudeoViewModel {}   // Team Seas and Swatchda bharat etc
     public class ThankYouCredits : PsudeoViewModel {}
 
     public class CollectDataForStates : ICommand
@@ -207,9 +207,9 @@ namespace SolutionToPlastic.ViewModels
     public class NotifyParentForPageSwitch : ICommand
     {
         public event EventHandler? CanExecuteChanged;
-        public Introduction vm;
+        public PsudeoViewModel vm;
 
-        public NotifyParentForPageSwitch(Introduction vm)
+        public NotifyParentForPageSwitch(PsudeoViewModel vm)
         {
             this.vm = vm;
         }

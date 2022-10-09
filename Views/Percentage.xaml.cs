@@ -32,7 +32,7 @@ namespace SolutionToPlastic.Views
             Ellipse state = (Ellipse)sender;
             Point mousepos = e.GetPosition(Canvas);
             double posX = mousepos.X - 5;
-            double posY = mousepos.Y + 25;
+            double posY = mousepos.Y + 5;
             viewModel.SetData.Execute($"{posX},{posY},{state.ToolTip.ToString().ToUpper()}");
         }
     }
