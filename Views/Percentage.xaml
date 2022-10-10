@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SolutionToPlastic.Views"
              mc:Ignorable="d" 
-             d:DesignWidth="1280" xml:space="preserve" x:Name="ThisWindow">
+             d:DesignWidth="1920" xml:space="preserve" x:Name="ThisWindow">
     <StackPanel>
         <StackPanel.Background>
             <LinearGradientBrush>
@@ -13,29 +13,31 @@
                 <GradientStop Color="#2E0F78" Offset="0.9"/>
             </LinearGradientBrush>
         </StackPanel.Background>
-        <Grid Height="750" Margin="50" Background="White">
-            <TextBlock Style="{StaticResource MainText}"  HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Text="PERCENTAGE OF TOP 5 COUNTRIES" Margin="0,50,0,0" Foreground="Black"/>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Width="1250">
+        <Grid Height="950" Margin="50" Background="White">
+            <TextBlock Style="{StaticResource MainText}" HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Text="PERCENTAGE OF TOP 5 COUNTRIES" Margin="250,0,0,0" Foreground="Black"/>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Width="1600">
                 <ProgressBar Style="{StaticResource ProgressBarStyle2}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[0]}"/>
                 <ProgressBar Style="{StaticResource ProgressBarStyle2}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[1]}"/>
                 <ProgressBar Style="{StaticResource ProgressBarStyle2}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[2]}"/>
                 <ProgressBar Style="{StaticResource ProgressBarStyle2}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[3]}"/>
                 <ProgressBar Style="{StaticResource ProgressBarStyle2}" Height="50" Margin="0,0,0,50" Value="{Binding Percentage[4]}"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[0]}" FontSize="20"/>
-                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[1]}" FontSize="20"/>
-                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[2]}" FontSize="20"/>
-                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[3]}" FontSize="20"/>
-                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="20,0,0,50" Text="{Binding Countries[4]}" FontSize="20"/>
+            <Border HorizontalAlignment="Left" BorderBrush="Black" Background="LightGray" BorderThickness="2">
+            <StackPanel>
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="80,225,0,50" Text="{Binding Countries[0]}" FontSize="28" />
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="80,0,0,50" Text="{Binding Countries[1]}" FontSize="28" />
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="80,0,0,50" Text="{Binding Countries[2]}" FontSize="28" />
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="80,0,0,50" Text="{Binding Countries[3]}" FontSize="28" />
+                <TextBlock Style="{StaticResource CaptionText}" Foreground="Black"  Width="250" Height="50" Margin="80,0,0,50" Text="{Binding Countries[4]}" FontSize="28" />
             </StackPanel>
+            </Border>
         </Grid>
         <Grid Height="1050">            
-                <TextBlock Style="{StaticResource MainText}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,60,385,0" Text="PLASTIC RECYCLED"/>
-                <TextBlock Style="{StaticResource CaptionText}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="40,120,0,0" Text="This Map contains the Plastic Recycled by all the states in India in KG's Ton's from the previous year till now. Click on a state to fetch it's data. Why don't you try it for yourself?" Width="742"/>
+                <TextBlock Style="{StaticResource MainText}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,45,420,0" Text="PLASTIC RECYCLED"/>
+                <TextBlock Style="{StaticResource CaptionText}"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,20,0" Text="This Map contains the Plastic Recycled by all the states in India in KG's Ton's from the previous year till now. Click on a state to fetch it's data. Why don't you try it for yourself?" Width="742"/>
         
-                <Canvas x:Name="Canvas" Margin="0,85,508,72">
-                    <Image Source="/img/India Map Chart.png" Height="720" HorizontalAlignment="Center" Canvas.Top="-20" VerticalAlignment="Top" Canvas.Left="4" />
+                <Canvas x:Name="Canvas" Margin="6,95,502,62">
+                    <Image Source="/Resources/img/India Map Chart.png" Height="720" HorizontalAlignment="Center" Canvas.Top="-20" VerticalAlignment="Top" Canvas.Left="4" />
                     <Ellipse ToolTip="Delhi" x:Name="Delhi" Height="20" Width="14" Canvas.Left="249" Canvas.Top="172" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
                     <Ellipse ToolTip="Nagaland" x:Name="Nagaland" Height="25" Width="35" Canvas.Left="595" Canvas.Top="220" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
                     <Ellipse ToolTip="Manipur" x:Name="Manipur" Height="36" Width="38" Canvas.Left="583" Canvas.Top="251" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -92,7 +94,7 @@
             </Ellipse>
             <Ellipse ToolTip="TamilNadu" x:Name="TamilNadu" Height="83" Width="70" Canvas.Left="249" Canvas.Top="552" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource EllpseTheme}"  MouseDown="Canvas_MouseDown" />
         </Canvas>
-            <Button Style="{StaticResource ButtonTheme}" Command="{Binding PageSwitch}" CommandParameter="Inventions" Width="120" Height="50" VerticalAlignment="Center"  HorizontalAlignment="Right" Content="Next Page" Margin="0,0,50,100"/>
+            <Button Style="{StaticResource ButtonTheme}" Command="{Binding PageSwitch}" CommandParameter="Projects" Width="120" Height="50" VerticalAlignment="Center"  HorizontalAlignment="Right" Content="Next Page" Margin="0,0,50,100"/>
     </Grid>
     </StackPanel>
 </UserControl>

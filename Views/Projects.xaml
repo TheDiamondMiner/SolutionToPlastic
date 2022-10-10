@@ -5,8 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SolutionToPlastic.Views"
              mc:Ignorable="d" 
-             d:DesignWidth="680" Height="800">
-    <Grid>
-        <TextBlock Text="PROJECTS PAGE" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="50"/>
-    </Grid>
+             d:DesignWidth="1920" Height="1080">
+    <StackPanel Orientation="Horizontal">
+        <Grid Width="1920">
+            <TextBlock VerticalAlignment="Top" Style="{StaticResource MainText}" Text="Inventions" Foreground="Black" TextAlignment="Center"  Background="#ECECEC" Panel.ZIndex="1"/>
+            <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                <Grid Width="640" Background="#F3D250">
+                    <TextBlock Style="{StaticResource MainText}" Text="BIO-DEGRADABLE PLASTIC" VerticalAlignment="Top" TextAlignment="Center" Margin="0,50,0,0" Foreground="Black"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Text="SHARON BARAK" VerticalAlignment="Top" TextAlignment="Center" Margin="0,100,0,0" Foreground="Black"/>
+                    <Image Width="240" Source="/Resources/img/SharonB.jpg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,170,0,0"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Left" Margin="265,170,0,0" Width="360" Text="Born in Israel, Sharon Barak is an plastic engineer until she left her company to fight plastic polution."/>
+                    <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,408,0,0" Width="612" Text="Her team together created a new form of material that looks, feels and behaves EXACTLY like plastic but is not plastic. Her product is so eco friendly that it disolves inside water in minutes!"/>
+                    <Image Style="{StaticResource AnimatedImage}" Source="/Resources/img/PlasticDis.png" VerticalAlignment="Bottom" Margin="0,0,0,100"/>
+                </Grid>
+                <Grid Width="640" Background="#90CCF4">
+                    <TextBlock Style="{StaticResource MainText}" Text="EDIBLE WATER" VerticalAlignment="Top" TextAlignment="Center" Margin="0,50,0,0" Foreground="Black"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Text="Skipping Rocks Lab" VerticalAlignment="Top" TextAlignment="Center" Margin="0,100,0,0" Foreground="Black"/>
+                    <Image Width="540" Source="/Resources/img/Ooho2.jpg" VerticalAlignment="Top" Margin="50,173,50,0"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,130,10,0" TextAlignment="Center" Text="Described fondly as an 'edible water blob', the Ooho is a natural alternative to plastic bottled water, made from seaweed and plants. It is completely edible.It is completely biodegradable, and degrades in just four to six weeks – similar to a piece of fruit and significantly faster than conventional PET alternatives that can hang around for hundreds of years."/>
+                    <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Center" Text=""/>
+                </Grid>
+                <Grid Width="640" Background="#F78888">
+                    <TextBlock Style="{StaticResource MainText}" Text="TOOTH PASTE TABLETS" VerticalAlignment="Top" TextAlignment="Center" Margin="0,50,0,0" Foreground="Black"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Text="Lindsay McCormick" VerticalAlignment="Top" TextAlignment="Center" Margin="0,100,0,0" Foreground="Black"/>
+                    <Image Width="240" Source="/Resources/img/Lindsay.png" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,169,0,0"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Left" Margin="265,170,0,0" Width="360" Text="Housed in reusable jars or recyclable packaging, toothpaste tablets are essentially chewable Chiclet-sized bites that you chew into a paste and brush with"/>
+                    <TextBlock Style="{StaticResource CaptionText}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,426,0,0" Width="605" Text="they deliver the same oral health benefits as the stuff from a tube without messing with Mother Earth. Lindsay McCormick has invented toothpaste pills and it has reduced the plastic components which were used when we buy a toothpaste."/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </UserControl>

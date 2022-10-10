@@ -14,13 +14,13 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateName, UpdateSourceTrigger=PropertyChanged}" Margin="5,10,0,0"/>
-            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding RecycledKG}" Margin="5,60,0,0"/>
-            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding RecycledTON}" Margin="5,110,0,0"/>
-            <TextBlock Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left" Text="YEAR: 2021-2022" Margin="5,160,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding StateName, UpdateSourceTrigger=PropertyChanged}" Margin="5,10,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding RecycledKG}" Margin="5,60,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding RecycledTON}" Margin="5,110,0,0"/>
+            <TextBlock Style="{StaticResource MainText}" FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Left" Text="YEAR: 2021-2022" Margin="5,160,0,0"/>
             <TextBlock Text="{Binding PercentRecycled}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,40" Foreground="White"/>
             <ProgressBar Style="{DynamicResource ProgressBarStyle1}" Value="{Binding PercentRecycled}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,40" Height="20" Width="240" Foreground="#5CDB82"/>
-            <TextBlock Text="{Binding Percent}" Style="{StaticResource MainText}" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,60"/>
+            <TextBlock Text="{Binding Percent}" Style="{StaticResource MainText}" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,60"/>
             <Button Content="OK" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="50" Margin="0,0,5,5" Click="Button_Click"/>
         </Grid>
     </Border>

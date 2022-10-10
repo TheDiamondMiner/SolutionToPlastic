@@ -168,8 +168,23 @@ namespace SolutionToPlastic.ViewModels
         }
     }
 
-    public class ProjectsAndInventions : PsudeoViewModel {}   // Team Seas and Swatchda bharat etc
-    public class ThankYouCredits : PsudeoViewModel {}
+    public class ProjectsAndInventions : PsudeoViewModel 
+    {
+        public ICommand PageSwitch { get; }
+        public ProjectsAndInventions()
+        {
+            PageSwitch = new NotifyParentForPageSwitch(this);
+        }
+    }
+
+    public class ThankYouCredits : PsudeoViewModel 
+    {
+        public ICommand PageSwitch { get; }
+        public ThankYouCredits()
+        {
+            PageSwitch = new NotifyParentForPageSwitch(this);
+        }
+    }
 
     public class CollectDataForStates : ICommand
     {

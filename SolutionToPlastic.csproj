@@ -8,22 +8,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="img\**" />
+    <EmbeddedResource Remove="img\**" />
+    <None Remove="img\**" />
+    <Page Remove="img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Image1.png" />
-    <None Remove="img\Cat.jpg" />
-    <None Remove="img\Computer Guy.png" />
-    <None Remove="img\DeadFish.png" />
-    <None Remove="img\EdibleWater.jpg" />
-    <None Remove="img\India Map Chart.png" />
-    <None Remove="img\Natural_Background.jpg" />
-    <None Remove="img\Oho.jpg" />
-    <None Remove="img\Oho2.png" />
-    <None Remove="img\Plastic.png" />
-    <None Remove="img\PlasticRecycle.png" />
-    <None Remove="img\PlasticToxic.png" />
-    <None Remove="img\Polluted.png" />
-    <None Remove="img\SharonB.jpg" />
-    <None Remove="img\Solution_to_plastic.png" />
-    <None Remove="img\Sprite.png" />
+    <None Remove="Resources\Fonts\BebasNeue-Regular.ttf" />
+    <None Remove="Resources\Fonts\Oswald-VariableFont_wght.ttf" />
+    <None Remove="Resources\Fonts\Silkscreen-Bold.ttf" />
+    <None Remove="Resources\img\Cat.jpg" />
+    <None Remove="Resources\img\Comp2.png" />
+    <None Remove="Resources\img\Computer Guy.png" />
+    <None Remove="Resources\img\DeadFish.png" />
+    <None Remove="Resources\img\Image1.png" />
+    <None Remove="Resources\img\India Map Chart.png" />
+    <None Remove="Resources\img\Lindsay.png" />
+    <None Remove="Resources\img\Natural_Background.jpg" />
+    <None Remove="Resources\img\Ooho.png" />
+    <None Remove="Resources\img\Ooho2.jpg" />
+    <None Remove="Resources\img\Plastic.png" />
+    <None Remove="Resources\img\PlasticDis.png" />
+    <None Remove="Resources\img\PlasticRecycle.png" />
+    <None Remove="Resources\img\PlasticToxic.png" />
+    <None Remove="Resources\img\Polluted.png" />
+    <None Remove="Resources\img\SharonB.jpg" />
+    <None Remove="Resources\img\Solotum.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,52 +46,64 @@
     <Resource Include="Cat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Computer Guy.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\DeadFish.png">
+    <Resource Include="Resources\Fonts\BebasNeue-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Image1.png">
+    <Resource Include="Resources\Fonts\Oswald-VariableFont_wght.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Cat.jpg">
+    <Resource Include="Resources\Fonts\Silkscreen-Bold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\EdibleWater.jpg">
+    <Resource Include="Resources\img\Cat.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\India Map Chart.png">
+    <Resource Include="Resources\img\Comp2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Natural_Background.jpg">
+    <Resource Include="Resources\img\Computer Guy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Oho.jpg">
+    <Resource Include="Resources\img\DeadFish.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Oho2.png">
+    <Resource Include="Resources\img\Image1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Plastic.png">
+    <Resource Include="Resources\img\India Map Chart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\PlasticRecycle.png">
+    <Resource Include="Resources\img\Lindsay.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\PlasticToxic.png">
+    <Resource Include="Resources\img\Natural_Background.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Polluted.png">
+    <Resource Include="Resources\img\Ooho.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\SharonB.jpg">
+    <Resource Include="Resources\img\Ooho2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Solution_to_plastic.png">
+    <Resource Include="Resources\img\Plastic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\Sprite.png">
+    <Resource Include="Resources\img\PlasticDis.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\PlasticRecycle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\PlasticToxic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\Polluted.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\SharonB.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\img\Solotum.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -13,13 +13,10 @@
             <DataTemplate DataType="{x:Type viewmodels:Introduction}">
                 <views:Introduction/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:InventionsMade}">
-                <views:Inventions/>
-            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:PercentagePage}">
                 <views:Percentage/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:ProjectsDone}">
+            <DataTemplate DataType="{x:Type viewmodels:ProjectsAndInventions}">
                 <views:Projects/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ThankYouCredits}">

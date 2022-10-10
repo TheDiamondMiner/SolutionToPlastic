@@ -3,19 +3,29 @@
     
     <Style TargetType="TextBlock" x:Key="MainText">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="38px"/>
+        <Setter Property="FontSize" Value="58px"/>
         <Setter Property="FontWeight" Value="ExtraBold"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Bebas Neue"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="CaptionText">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="30px"/>
+        <Setter Property="FontSize" Value="34px"/>
         <Setter Property="FontWeight" Value="ExtraLight"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Oswald ExtraLight"/>
     </Style>
 
-    <SolidColorBrush x:Key="ProgressBar.Progress" Color="Orange"/>
+    <Style TargetType="TextBlock" x:Key="Troll">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="34px"/>
+        <Setter Property="FontWeight" Value="ExtraLight"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Silkscreen"/>
+    </Style>
+
+    <SolidColorBrush x:Key="ProgressBar.Progress" Color="LightBlue"/>
     <SolidColorBrush x:Key="ProgressBar.Background" Color="LightGray"/>
     <SolidColorBrush x:Key="ProgressBar.Border" Color="Transparent"/>
     <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
@@ -99,15 +109,20 @@
     <Style TargetType="Image" x:Key="AnimatedImage">
         <Setter Property="Width" Value="240"/>
         <Setter Property="Height" Value="240"/>
-        <Setter Property="Opacity" Value="0"/>
+        <Setter Property="Opacity" Value="100"/>
         <Style.Triggers>
-            <EventTrigger RoutedEvent="MouseEnter">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation Storyboard.TargetProperty="Opacity" To="100" Duration="00:01:00"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Duration="00:00:2">
+                                <EasingDoubleKeyFrame Value="50" KeyTime="00:00:1"/>
+                                <EasingDoubleKeyFrame Value="0" KeyTime="00:00:2"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+            </Trigger>
         </Style.Triggers>
     </Style>
     
@@ -117,11 +132,13 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="10" Background="{TemplateBinding Background}">
-                            <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                            <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="{TemplateBinding FontFamily}"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="FontFamily" Value="/Resources/Fonts/#Oswald ExtraLight"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="#f64C72" />
             <Setter Property="Foreground" Value="White" />
         </Style.Setters>
